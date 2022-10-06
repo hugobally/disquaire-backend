@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "listings",
+  "info": {
+    "singularName": "listing",
+    "pluralName": "listings",
+    "displayName": "Listings",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "discogs_listing_id": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "note": {
+      "type": "richtext"
+    },
+    "moods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::mood.mood",
+      "inversedBy": "listings"
+    },
+    "artist": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "format": {
+      "type": "string"
+    }
+  }
+}
