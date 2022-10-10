@@ -1,9 +1,20 @@
 const { fetchDiscogsListings } = require('./discogs')
+const { uniqBy } = require('lodash')
 
 module.exports = {
   fetchDiscogsListings,
   syncWithDiscogs: async (strapi) => {
-    const remoteListings = await fetchDiscogsListings()
+    let remoteListings
+    try {
+      remoteListings = uniqBy(
+        await fetchDiscogsListings(),
+        (listing) => listing.release.id
+      )
+    } catch (e) {
+      console.log(e)
+      return
+    }
+
     const localListings = await strapi.entityService.findMany(
       'api::listing.listing',
       { fields: ['id', 'discogs_listing_id'] }
@@ -54,5 +65,5 @@ module.exports = {
       '. Deleted listings: ',
       localListingsToDelete.length
     )
-  }
+  },
 }

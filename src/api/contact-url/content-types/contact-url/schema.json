@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_urls",
+  "info": {
+    "singularName": "contact-url",
+    "pluralName": "contact-urls",
+    "displayName": "Contact Url"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "instagram": {
+      "type": "string"
+    },
+    "facebook": {
+      "type": "string"
+    },
+    "bandcamp": {
+      "type": "string"
+    },
+    "mastodon": {
+      "type": "string"
+    }
+  }
+}

@@ -28,16 +28,13 @@ function fetchDiscogsInventoryPage(page = 1) {
     },
   }
 
-  return performRequest(
-    options,
-    (response) => {
-      const responseFromJSON = JSON.parse(response)
-      return {
-        ...responseFromJSON,
-        numPages: responseFromJSON.pagination.pages,
-      }
+  return performRequest(options, (response) => {
+    const responseFromJSON = JSON.parse(response)
+    return {
+      ...responseFromJSON,
+      numPages: responseFromJSON.pagination.pages,
     }
-  )
+  })
 }
 
 async function fetchAllPages(fetchOnePage) {
