@@ -12,12 +12,9 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "description": {
-      "type": "richtext",
-      "required": true
-    },
     "url": {
-      "type": "string"
+      "type": "string",
+      "required": false
     },
     "image": {
       "type": "media",
